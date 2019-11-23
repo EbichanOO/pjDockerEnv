@@ -10,7 +10,7 @@ ENV CGO_ENABLED=0
 ENV GOOS=linux
 ENV GOARCH=amd64
 
-ADD ./src/sariomo/ .
+ADD ./src/HakoLive-server/ .
 
 ENV GO111MODULE=on
 RUN go mod init
@@ -21,6 +21,5 @@ FROM alpine
 RUN apk add --no-cache ca-certificates
 WORKDIR /work/
 COPY --from=builder /go/src/github.com/work/app /app
-RUN mkdir -p static/img/
 EXPOSE 8080
 ENTRYPOINT ["/app"]
