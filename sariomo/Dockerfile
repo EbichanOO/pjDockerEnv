@@ -21,6 +21,5 @@ FROM alpine
 RUN apk add --no-cache ca-certificates
 WORKDIR /work/
 COPY --from=builder /go/src/github.com/work/app /app
-RUN mkdir -p static/img/
 EXPOSE 8080
 ENTRYPOINT ["/app"]

@@ -19,8 +19,9 @@ RUN go build -o app
 # runtime image
 FROM alpine
 RUN apk add --no-cache ca-certificates
+RUN apk --no-cache add tzdata
 WORKDIR /work/
-COPY --from=builder /go/src/github.com/work/app /app
+COPY --from=builder /go/src/github.com/work/app /work/app
 RUN mkdir -p static/img/
 EXPOSE 8080
-ENTRYPOINT ["/app"]
+ENTRYPOINT ["/work/app"]
