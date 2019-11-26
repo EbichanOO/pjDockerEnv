@@ -10,7 +10,7 @@ ENV CGO_ENABLED=0
 ENV GOOS=linux
 ENV GOARCH=amd64
 
-ADD ./src/sariomo/ .
+ADD ./src/sariomo-Server/GCP-sariomo/GCP-sariomo/ .
 
 ENV GO111MODULE=on
 RUN go mod init
@@ -22,4 +22,4 @@ RUN apk add --no-cache ca-certificates
 WORKDIR /work/
 COPY --from=builder /go/src/github.com/work/app /app
 EXPOSE 8080
-ENTRYPOINT ["/app"]
+#ENTRYPOINT ["/app"]
