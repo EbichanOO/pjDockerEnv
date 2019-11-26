@@ -22,4 +22,4 @@ RUN apk add --no-cache ca-certificates
 WORKDIR /work/
 COPY --from=builder /go/src/github.com/work/app /app
 EXPOSE 8080
-#ENTRYPOINT ["/app"]
+ENTRYPOINT ["/app"]
